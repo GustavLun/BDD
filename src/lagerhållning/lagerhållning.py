@@ -12,3 +12,11 @@ class Stock:
     self.items = []
   def add_product(self, product):
     self.items.append(product)
+
+  def take_a_product(self, product, amount):
+      print("Produkt:", product) # Felsökning då jag fick problem med koden
+      print("Items:", self.items)
+      print("Finns produkten?", product in self.items)
+
+      if product in self.items:
+         product.amount -= amount

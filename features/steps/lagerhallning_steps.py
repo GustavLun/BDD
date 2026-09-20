@@ -18,3 +18,14 @@ def step_impl(context):
 @then(u'lagret fylls med 5 st gurkor')
 def step_impl(context):
     assert context.StockItem in context.stock.items
+
+
+@when(u'jag tar bort 2 st')
+def step_impl(context):
+    context.stock.take_a_product(context.StockItem, 2)
+    print("efter uttag:", context.StockItem.amount)
+
+
+@then(u'lagret har nu endast 3 gurkor')
+def step_impl(context):
+    assert context.StockItem.amount == 3
